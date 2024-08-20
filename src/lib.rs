@@ -38,6 +38,6 @@ pub fn pinv<T:RealField+HasPrecision+One+Zero>(mat: OMatrix<T, Dyn, Dyn>) -> OMa
     });
     //Create our square matrix 'sigma' (singular values on the diagonal)
     let sigma_t = Matrix::from_diagonal(&sigma_t_diagonal);
-    //our pseudoinverse is not svd.v_t.adjoint() * sigma_t * svd.u.adjoint
+    //our pseudoinverse is now svd.v_t.adjoint() * sigma_t * svd.u.adjoint
     svd.v_t.unwrap().adjoint() * sigma_t * svd.u.unwrap().adjoint()
 }
